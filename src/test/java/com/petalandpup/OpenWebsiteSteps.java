@@ -13,8 +13,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class OpenWebsiteSteps {
 
-    private WebDriver driver;
+    // Shared WebDriver across steps in this class
+    private static WebDriver driver;
     private static final String BASE_URL = "https://petalandpup.com";
+
+    public static WebDriver getDriver() {
+        return driver;
+    }
 
     @Given("I launch the browser")
     public void i_launch_the_browser() {
